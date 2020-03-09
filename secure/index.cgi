@@ -6,30 +6,34 @@
 use MIME::Base64;
 use CGI qw/:standard *table *td *tr *ul/;
 use utf8;
-#use encoding 'utf8';
 
 print header(-type=>'text/html',-charset=>'utf-8'),
-      start_html(-title=>'Demo SP',
-                 -script=>[{-type=>'javascript',-src=>'https://code.jquery.com/jquery-3.3.1.slim.min.js'},
-                           {-type=>'javascript',-src=>'https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js'},
-                           {-type=>'javascript',-src=>'https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js'}],
+      start_html(-title=>'Skolverkets testsida f&ouml;r inloggning till digitala nationella prov',
                  -head=>[meta({-http_equiv => 'Content-Type',
+                               -robots => 'noindex',
+                               -viewport => "width=device-width, initial-scale=0.86, maximum-scale=3.0, minimum-scale=0.86",
+                               "apple-mobile-web-app-capable" => "yes",
+                               "apple-mobile-web-app-status-bar-style" => "black-translucent",
+                               "format-detection" => "telephone=no",
+                               "charset" => "utf-8",
                                -content    => 'text/html; charset=utf-8'}),
-                         Link({-rel=>'stylesheet',-href=>'//maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css'}),
-                         ]),
-      '<div class="container">',
-      h1({-class=>'page-header'},'Federation Authentication Information');
+                         Link({-rel=>'stylesheet',-href=>'/assets/style.css'}),
+                         Link({-rel=>'icon',-href=>"/assets/android-chrome-192x192.png"}),
+                         Link({-rel=>'manifest',-href=>'/assets/manifest.json'}),
+                         Link({-rel=>'shortcut icon',-href=>'/assets/favicon.ico'}),
+                         Link({-rel=>'apple-touch-icon',-href=>'/assets/android-chrome-192x192.png'})
+                         ]);
 
 print <<EOH;
-<div class="panel panel-default">
-<div class="panel-heading">Attributes</div>
-<div class="panel-body">
-<p>
-   These attributes were send from the Identity Provider ($ENV{Shib_Identity_Provider}). The 'eppn' attribute if present is often
-   used as a permanent identifier for you.
-</p>
-</div>
-<table class="table table-striped table-bordered">
+
+<div class="header"><div class="topnav"><img src="/assets/skolverket-logotype.svg" class="logotype" /></div></div>
+  <div class="container"><div class="widecontent"><div class="page"><h2>Grattis!</h2>
+    <p class="largetext">Du har nu lyckats logga in till Skolverkets testsida.</p>
+        <p>H&auml;r nedan ser du den information som skickades till oss via din skolas identitetstj&auml;nst (&auml;ven kallad Identity Provider, IDP). D&aring; detta &auml;r en test kommer dessa uppgifter inte att sparas av Skolverket.</p> 
+        <table cellpadding="0" cellspacing="0">
+        <tr>
+          <th id="label">Attribut</th><th>V&auml;rde</th>
+        </tr>
 EOH
 
 foreach $var (sort(keys(%ENV))) {
@@ -38,19 +42,19 @@ foreach $var (sort(keys(%ENV))) {
     $val = $ENV{$var};
     $val =~ s|\n|\\n|g;
     $val =~ s|"|\\"|g;
-    print "<tr><th>$var</th><td>$val</td></tr>\n";
+    print "<tr><th id=\"label\">$var</th><td class=\"ellipsis\">$val</td></tr>\n";
 }
-print "</table></div>\n";
+print "</table>\n";
 
-print h2('See Also');
 print<<EOH;
-   <p>
-     This information is mostly meant to be interesting for expert users. Access to logs is restricted. Contact operations@swamid.se for access
-   </p>
-   <ul>
-      <li><a href="/Shibboleth.sso/Session">Session</a></li>
-      <li><a href="/Shibboleth.sso/Logout">Logout</a></li>
-   </ul>
+<p>Informationen skickades till oss fr&aring;n din skolas identitetstj&auml;nst</p>
+        <h3>V&auml;rt att veta:</h3>
+        <p>Skolverket hanterar inte dina inloggningsuppgifter. Du n&aring;r v&aring;r testsida via en inloggning p&aring; din skola, 
+           &auml;ven kallad federerad inloggning. Om du vill l&auml;ra mer om hur federerad inloggning fungerar, bes&ouml;k 
+           Internetstiftelsens webbplats om <a href="https://www.skolfederation.se/" target="_blank">Skolfederation</a>.</p>
+        <p>&nbsp;<p></div>
+        <p>&nbsp;<p></div></div>
+  </div>
 EOH
 
-print '</div>',end_html;
+print end_html;

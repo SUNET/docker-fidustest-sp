@@ -177,6 +177,6 @@ a2ensite default-ssl
 service shibd start
 rm -f /var/run/apache2/apache2.pid
 
-envsubst < /tmp/index.env > /var/www/html/index.html
+envsubst < /tmp/index.html > /var/www/html/index.html
 
 env APACHE_LOCK_DIR=/var/lock/apache2 APACHE_RUN_DIR=/var/run/apache2 APACHE_PID_FILE=/var/run/apache2/apache2.pid APACHE_RUN_USER=www-data APACHE_RUN_GROUP=www-data APACHE_LOG_DIR=/var/log/apache2 apache2 -DFOREGROUND
