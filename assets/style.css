@@ -166,6 +166,12 @@ table th#label, table td#label {
 	font-weight:600;
 }
 
+table td {
+	text-overflow:ellipsis;
+	overflow: hidden; 
+	max-width:1px;
+}	
+
 @media only screen and (max-width: 900px) {
 .topnav {
 	text-align:center;
@@ -182,12 +188,4 @@ table th#label, table td#label {
 	padding:9px 24px 9px 24px;
 }
 
-}
-
-.ellipsis {
-  text-overflow: ellipsis;
-
-  /* Required for text-overflow to do anything */
-  white-space: nowrap;
-  overflow: hidden;
 }

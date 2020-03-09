@@ -4,11 +4,11 @@
 ##
 
 use MIME::Base64;
-use CGI qw/:standard *table *td *tr *ul/;
-use utf8;
+use utf8::all;
+use CGI qw/-utf8 :standard *table *td *tr *ul/;
 
 print header(-type=>'text/html',-charset=>'utf-8'),
-      start_html(-title=>'Skolverkets testsida f&ouml;r inloggning till digitala nationella prov',
+      start_html(-title=>'Skolverkets testsida för inloggning till digitala nationella prov',
                  -head=>[meta({-http_equiv => 'Content-Type',
                                -robots => 'noindex',
                                -viewport => "width=device-width, initial-scale=0.86, maximum-scale=3.0, minimum-scale=0.86",

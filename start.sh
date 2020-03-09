@@ -80,9 +80,7 @@ cat>/etc/shibboleth/shibboleth2.xml<<EOF
 
         </Sessions>
 
-        <Errors supportContact="${SP_CONTACT}"
-            helpLocation="${SP_ABOUT}"
-            styleSheet="/shibboleth-sp/main.css"/>
+        <Errors supportContact="${SP_CONTACT}" redirectErrors="/error.html"/>
 
         <MetadataProvider type="XML" uri="${MD_URL}"
            backingFilePath="swamid-1.0.xml" reloadInterval="300">
