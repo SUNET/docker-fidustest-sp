@@ -4,7 +4,7 @@
 ##
 
 use MIME::Base64;
-use utf8::all;
+use feature 'unicode_strings';
 use CGI qw/-utf8 :standard *table *td *tr *ul/;
 
 print header(-type=>'text/html',-charset=>'utf-8'),

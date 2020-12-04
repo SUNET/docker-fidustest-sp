@@ -138,8 +138,6 @@ ServerName ${SP_HOSTNAME}
            Header always set X-XSS-Protection "1; mode=block"
         </IfModule>
 
-        AddDefaultCharset utf-8
-
         ErrorLog /var/log/apache2/error.log
         LogLevel warn
         CustomLog /var/log/apache2/access.log combined
