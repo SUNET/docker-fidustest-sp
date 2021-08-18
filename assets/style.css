@@ -171,6 +171,9 @@ table td {
 	overflow: hidden; 
 	max-width:1px;
 }	
+.no-overflow {
+	max-width: unset;
+}
 
 @media only screen and (max-width: 900px) {
 .topnav {
