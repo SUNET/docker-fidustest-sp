@@ -27,9 +27,13 @@
       <div class="popup">
         <h2>Test av Skolverkets inloggningstjänst</h2>
         <p>Denna sida är avsedd för att skolor ska kunna testa inloggningstjänsten för digitala nationella prov på Skolverket. Testen förutsätter att skolan är medlem i Skolfederation.</p>
-        <div id="login"></div>
-        <br>
-        <p><a href="mfa.html">Test med MFA</a></p>
+        <p>Nedan följer de profiler som stödjs. Välj den AuthnContextClassRef du vill testa.</p>
+        <hr>
+        <p>Test med ACCR = https://refeds.org/profile/mfa<div id="REFEDS"></div></p>
+        <hr>
+        <p>Test med ACCR = http://schemas.microsoft.com/claims/multipleauthn<div id="MS"></div></p>
+        <hr>
+        <p><a href="/">Test utan MFA</a></p>
         <hr>
         <p>För mer information, besök gärna följande sidor:</p> 
         <p><a href="https://www.skolverket.se/om-oss/var-verksamhet/skolverkets-prioriterade-omraden/digitalisering/digitala-nationella-prov/digitalisering-av-de-nationella-proven" target="_blank">Digitala nationella prov</a></p>
@@ -40,10 +44,15 @@
   <script>
       window.onload = function() {
           thiss.DiscoveryComponent.render({
-              loginInitiatorURL: 'https://${SP_HOSTNAME}/Shibboleth.sso/Login?target=https://${SP_HOSTNAME}/secure',
+              loginInitiatorURL: 'https://${SP_HOSTNAME}/Shibboleth.sso/REFEDS?target=https://${SP_HOSTNAME}/refeds_mfa',
               context: '${CONTEXT}',
               backgroundColor: 'white',
-          }, '#login');
+          }, '#REFEDS');
+          thiss.DiscoveryComponent.render({
+              loginInitiatorURL: 'https://${SP_HOSTNAME}/Shibboleth.sso/MS?target=https://${SP_HOSTNAME}/MS_mfa',
+              context: '${CONTEXT}',
+              backgroundColor: 'white',
+          }, '#MS');
       };
   </script>
 </body>

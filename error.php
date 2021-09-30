@@ -19,12 +19,52 @@
 <body>
   <div class="header"><div class="topnav"><img src="assets/skolverket-logotype.svg" class="logotype" /></div></div>
   <div class="container"><div class="content"><div class="popup"><h2>Åtkomst nekades!</h2>
+<?php
+switch($_GET['RelayState']) {
+	case 'https://fidustest.skolverket.se/secure':
+		$error = 'SFA';
+		$retry = 'index.html';
+		break;
+	case 'https://fidustest.skolverket.se/refeds_mfa':
+	case 'https://fidustest.skolverket.se/refeds_mfa/':
+		$expected = 'https://refeds.org/profile/mfa';
+		$error = 'MFA';
+		$retry = 'mfa.html';
+		break;
+	case 'https://fidustest.skolverket.se/MS_mfa':
+	case 'https://fidustest.skolverket.se/MS_mfa/':
+		$expected='http://schemas.microsoft.com/claims/multipleauthn';
+		$error = 'MFA';
+		$retry = 'mfa.html';
+		break;
+	default:
+		$error = '?';
+		$retry = 'index.html';
+}
+?>
     <p class="largetext">Vi kunde inte ge dig åtkomst till Skolverkets testsida.</p>
 	<p>När du ser denna text innebär det att inloggningen misslyckades. Detta kan ha orsakats av ett temporärt fel,
 	   men det kan också bero på att din skola inte lyckades verifiera dina behörigheter för åtkomst till 
 	   Skolverkets inloggningstjänst.</p> 
-	<p>Följ länken här för att <a href="index.html">testa inloggningen en gång till</a> och om felet kvarstår kontakta 
+<?php
+if ($error == 'MFA') {
+	print "	<p>Antingen supportar er IdP inte MFA via <b>$expected</b> eller så är inte användaren aktiverad för denna profil</p>\n";
+}
+?>
+	<p>Följ länken här för att <a href="<?=$retry?>">testa inloggningen en gång till</a> och om felet kvarstår kontakta 
 	   teknisk support på din skola för vidare hjälp.</p>
+<p>
+	<h3>Felkoder:</h3>
+	<p>Skicka denna info för att underlätta felsökning</p>
+<table>
+<?php
+foreach ($_GET as $key => $value) {
+	printf('<tr><td>%s = %s</td></tr>', $key, $value);
+}
+?>
+
+</table>
+
 	<h3>Värt att veta:</h3>
 	<p>Skolverket hanterar inte dina inloggningsuppgifter. Du når vår testsida via en inloggning på din skola, 
 	   även kallad federerad inloggning. För att testet ska fungera måste du därför ha giltiga inloggningsuppgifter 

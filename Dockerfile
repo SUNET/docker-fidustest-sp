@@ -19,10 +19,15 @@ RUN chmod a+rx /start.sh
 ADD attribute-map.xml /etc/shibboleth/attribute-map.xml
 ADD secure /var/www/html/secure
 RUN chmod a+rx /var/www/html/secure/index.php
+ADD refeds_mfa /var/www/html/refeds_mfa
+RUN chmod a+rx /var/www/html/refeds_mfa/index.php
+ADD MS_mfa /var/www/html/MS_mfa
+RUN chmod a+rx /var/www/html/MS_mfa/index.php
 COPY /apache2.conf /etc/apache2/
 ADD shibd.logger /etc/shibboleth/shibd.logger
 ADD index.html /tmp
-ADD error.html /var/www/html/
+ADD mfa.html /tmp
+ADD error.php /var/www/html/
 ADD assets /var/www/html/assets
 EXPOSE 443
 EXPOSE 80
