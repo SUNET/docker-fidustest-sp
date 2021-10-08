@@ -33,6 +33,8 @@
         <hr>
         <p>Test med ACCR = http://schemas.microsoft.com/claims/multipleauthn<div id="MS"></div></p>
         <hr>
+        <p>Test med ACCR = http://id.skolfederation.se/loa/2fa<div id="SKOLFED"></div></p>
+        <hr>
         <p><a href="/">Test utan MFA</a></p>
         <hr>
         <p>För mer information, besök gärna följande sidor:</p> 
@@ -53,6 +55,11 @@
               context: '${CONTEXT}',
               backgroundColor: 'white',
           }, '#MS');
+          thiss.DiscoveryComponent.render({
+              loginInitiatorURL: 'https://${SP_HOSTNAME}/Shibboleth.sso/skolfed?target=https://${SP_HOSTNAME}/skolfed_mfa',
+              context: '${CONTEXT}',
+              backgroundColor: 'white',
+          }, '#SKOLFED');
       };
   </script>
 </body>

@@ -90,6 +90,12 @@ cat>/etc/shibboleth/shibboleth2.xml<<EOF
                 <SessionInitiator type="SAMLDS" URL="https://${THISS_DOMAIN}/ds"/>
             </SessionInitiator>
 
+            <SessionInitiator type="Chaining" Location="/skolfed" id="ds-skolfed" relayState="cookie" authnContextClassRef="http://id.skolfederation.se/loa/2fa" forceAuthn="true">
+                <SessionInitiator type="SAML2" defaultACSIndex="1" acsByIndex="false" template="bindingTemplate.html"/>
+                <SessionInitiator type="Shib1" defaultACSIndex="5"/>
+                <SessionInitiator type="SAMLDS" URL="https://${THISS_DOMAIN}/ds"/>
+            </SessionInitiator>
+
         </Sessions>
 
         <Errors supportContact="${SP_CONTACT}" redirectErrors="/error.php"/>
@@ -177,6 +183,14 @@ ServerName ${SP_HOSTNAME}
            AuthType shibboleth
            ShibRequireSession On
            ShibRequestSetting authnContextClassRef http://schemas.microsoft.com/claims/multipleauthn
+           ShibRequestSetting forceAuthn true
+           require valid-user
+        </Location>
+
+        <Location /skolfed_mfa>
+           AuthType shibboleth
+           ShibRequireSession On
+           ShibRequestSetting authnContextClassRef http://id.skolfederation.se/loa/2fa
            ShibRequestSetting forceAuthn true
            require valid-user
         </Location>
