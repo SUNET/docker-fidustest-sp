@@ -78,9 +78,27 @@ cat>/etc/shibboleth/shibboleth2.xml<<EOF
                 <SessionInitiator type="SAMLDS" URL="https://${THISS_DOMAIN}/ds"/>
             </SessionInitiator>
 
+            <SessionInitiator type="Chaining" Location="/REFEDS" id="ds-refeds" relayState="cookie" authnContextClassRef="https://refeds.org/profile/mfa" forceAuthn="true">
+                <SessionInitiator type="SAML2" defaultACSIndex="1" acsByIndex="false" template="bindingTemplate.html"/>
+                <SessionInitiator type="Shib1" defaultACSIndex="5"/>
+                <SessionInitiator type="SAMLDS" URL="https://${THISS_DOMAIN}/ds"/>
+            </SessionInitiator>
+
+            <SessionInitiator type="Chaining" Location="/MS" id="ds-ms" relayState="cookie" authnContextClassRef="http://schemas.microsoft.com/claims/multipleauthn" forceAuthn="true">
+                <SessionInitiator type="SAML2" defaultACSIndex="1" acsByIndex="false" template="bindingTemplate.html"/>
+                <SessionInitiator type="Shib1" defaultACSIndex="5"/>
+                <SessionInitiator type="SAMLDS" URL="https://${THISS_DOMAIN}/ds"/>
+            </SessionInitiator>
+
+            <SessionInitiator type="Chaining" Location="/skolfed" id="ds-skolfed" relayState="cookie" authnContextClassRef="http://id.skolfederation.se/loa/2fa" forceAuthn="true">
+                <SessionInitiator type="SAML2" defaultACSIndex="1" acsByIndex="false" template="bindingTemplate.html"/>
+                <SessionInitiator type="Shib1" defaultACSIndex="5"/>
+                <SessionInitiator type="SAMLDS" URL="https://${THISS_DOMAIN}/ds"/>
+            </SessionInitiator>
+
         </Sessions>
 
-        <Errors supportContact="${SP_CONTACT}" redirectErrors="/error.html"/>
+        <Errors supportContact="${SP_CONTACT}" redirectErrors="/error.php"/>
 
         <MetadataProvider type="XML" uri="${MD_URL}"
            backingFilePath="swamid-1.0.xml" reloadInterval="300">
@@ -153,6 +171,30 @@ ServerName ${SP_HOSTNAME}
            AddHandler cgi-script .cgi
         </Location>
 
+        <Location /refeds_mfa>
+           AuthType shibboleth
+           ShibRequireSession On
+           ShibRequestSetting authnContextClassRef https://refeds.org/profile/mfa
+           ShibRequestSetting forceAuthn true
+           require valid-user
+        </Location>
+
+        <Location /MS_mfa>
+           AuthType shibboleth
+           ShibRequireSession On
+           ShibRequestSetting authnContextClassRef http://schemas.microsoft.com/claims/multipleauthn
+           ShibRequestSetting forceAuthn true
+           require valid-user
+        </Location>
+
+        <Location /skolfed_mfa>
+           AuthType shibboleth
+           ShibRequireSession On
+           ShibRequestSetting authnContextClassRef http://id.skolfederation.se/loa/2fa
+           ShibRequestSetting forceAuthn true
+           require valid-user
+        </Location>
+
 </VirtualHost>
 EOF
 
@@ -174,5 +216,6 @@ service shibd start
 rm -f /var/run/apache2/apache2.pid
 
 envsubst < /tmp/index.html > /var/www/html/index.html
+envsubst < /tmp/mfa.html > /var/www/html/mfa.html
 
 env APACHE_LOCK_DIR=/var/lock/apache2 APACHE_RUN_DIR=/var/run/apache2 APACHE_PID_FILE=/var/run/apache2/apache2.pid APACHE_RUN_USER=www-data APACHE_RUN_GROUP=www-data APACHE_LOG_DIR=/var/log/apache2 apache2 -DFOREGROUND
