@@ -105,6 +105,10 @@ cat>/etc/shibboleth/shibboleth2.xml<<EOF
            <SignatureMetadataFilter certificate="${MD_CERT}"/>
         </MetadataProvider>
 
+        <MetadataProvider type="XML" uri="https://idpproxy.dev.eduid.se/idp"
+           backingFilePath="idpproxy.dev.xml" reloadInterval="300">
+        </MetadataProvider>
+
         <AttributeExtractor type="XML" validate="true" reloadChanges="false" path="attribute-map.xml"/>
         <AttributeResolver type="Query" subjectMatch="true"/>
         <AttributeFilter type="XML" validate="true" path="attribute-policy.xml"/>

@@ -27,15 +27,22 @@
       <div class="popup">
         <h2>Test av Skolverkets inloggningstjänst</h2>
         <p>Denna sida är avsedd för att skolor ska kunna testa inloggningstjänsten för digitala nationella prov på Skolverket. Testen förutsätter att skolan är medlem i Skolfederation.</p>
-        <p>Nedan följer de profiler som stödjs. Välj den AuthnContextClassRef du vill testa.</p>
+	<h3>Verifiering av skolans inloggningstjänst</h3>
+        <p>Denna test kan användas för att verifiera om skolans inloggningstjänst (IdP) klarar av att hantera kommunikationen om AuthnContextClassRef (ACCR) med de profiler som stödjs i Skolverkets provtjänst. Välj den ACCR som du vill testa.Nedan följer de profiler som stödjs. Välj den AuthnContextClassRef du vill testa.</p>
         <hr>
         <p>Test med ACCR = https://refeds.org/profile/mfa<div id="REFEDS"></div></p>
         <hr>
         <p>Test med ACCR = http://schemas.microsoft.com/claims/multipleauthn<div id="MS"></div></p>
         <hr>
         <p>Test med ACCR = http://id.skolfederation.se/loa/2fa<div id="SKOLFED"></div></p>
+	<hr>
+	<h3>Test via provtjänstens gateway</h3>
+	<p>Denna test kan genomföras efter att inloggningstjänstens stöd för flerfaktorsautentisering har deklarerats i federationsmetadata. Inloggning via länken nedan testar hela inloggningsflödet med ett identitetsintyg (SAML-intyg) som passerar provtjänstens gateway. Denna gateway hanterar i sin tur kommunikationen till och från Skolverkets provplattform för digitala nationella prov.
+	<br>
+	<br>
+	<a href="/Shibboleth.sso/Login?target=https://${SP_HOSTNAME}/refeds_mfa&entityID=https://idpproxy.dev.eduid.se/idp&authnContextClassRef=https://refeds.org/profile/mfa">Test flerfaktorsautentisering (MFA) via provtjänstens gateway</a></p>
         <hr>
-        <p><a href="/">Test utan MFA</a></p>
+        <p><a href="/">Tester utan flerfaktorsautentisering (MFA)</a></p>
         <hr>
         <p>För mer information, besök gärna följande sidor:</p> 
         <p><a href="https://www.skolverket.se/om-oss/var-verksamhet/skolverkets-prioriterade-omraden/digitalisering/digitala-nationella-prov/digitalisering-av-de-nationella-proven" target="_blank">Digitala nationella prov</a></p>

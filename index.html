@@ -28,8 +28,16 @@
         <h2>Test av Skolverkets inloggningstjänst</h2>
         <p>Denna sida är avsedd för att skolor ska kunna testa inloggningstjänsten för digitala nationella prov på Skolverket. Testen förutsätter att skolan är medlem i Skolfederation.</p>
         <div id="login"></div>
-        <br>
-        <p><a href="mfa.html">Test med MFA</a></p>
+	<br>
+	<br>
+	<h3>Test via provtjänstens gateway</h3>
+	<p>
+	Denna test är en simulering av inloggningsflödet till Skolverkets provtjänst. Den föregående testen (ovan) avser att verifiera skolans inloggningstjänst (IdP) i Fidus. Inloggning via länken nedan testar även flödet där identitetsintyget (SAML-intyget) passerar provtjänstens gateway. Denna gateway hanterar i sin tur kommunikationen till och från Skolverkets provplattform för digitala nationella prov.
+	<br>
+	<br>
+	<a href="/Shibboleth.sso/Login?target=https://${SP_HOSTNAME}/secure&entityID=https://idpproxy.dev.eduid.se/idp">Testa inloggning via provtjänstens gateway</a></p>
+        <hr>
+        <p><a href="mfa.html">Tester med flerfaktorsautentisering (MFA)</a></p>
         <hr>
         <p>För mer information, besök gärna följande sidor:</p> 
         <p><a href="https://www.skolverket.se/om-oss/var-verksamhet/skolverkets-prioriterade-omraden/digitalisering/digitala-nationella-prov/digitalisering-av-de-nationella-proven" target="_blank">Digitala nationella prov</a></p>
