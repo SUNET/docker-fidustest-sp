@@ -17,17 +17,19 @@ RUN rm -f /etc/apache2/sites-enabled/*
 ADD start.sh /start.sh
 RUN chmod a+rx /start.sh
 ADD attribute-map.xml /etc/shibboleth/attribute-map.xml
+ADD attribute-policy.xml /etc/shibboleth/attribute-policy.xml
+ADD index.php /var/www/html/index.php
+ADD assets /var/www/html/assets
+ADD error.php /var/www/html/
+ADD DNP /var/www/html/DNP
+ADD login /var/www/html/login
 ADD secure /var/www/html/secure
 ADD refeds_mfa /var/www/html/refeds_mfa
 ADD MS_mfa /var/www/html/MS_mfa
 ADD skolfed_mfa /var/www/html/skolfed_mfa
-RUN chmod a+rx /var/www/html/secure/index.php /var/www/html/refeds_mfa/index.php /var/www/html/MS_mfa/index.php /var/www/html/skolfed_mfa/index.php
+RUN chmod a+rx /var/www/html/secure/index.php /var/www/html/refeds_mfa/index.php /var/www/html/MS_mfa/index.php /var/www/html/skolfed_mfa/index.php /var/www/html/DNP/index.php /var/www/html/login/index.php 
 COPY /apache2.conf /etc/apache2/
 ADD shibd.logger /etc/shibboleth/shibd.logger
-ADD index.html /tmp
-ADD mfa.html /tmp
-ADD error.php /var/www/html/
-ADD assets /var/www/html/assets
 EXPOSE 443
 EXPOSE 80
 ENTRYPOINT ["/start.sh"]
