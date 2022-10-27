@@ -1,5 +1,5 @@
 VERSION=latest
-NAME=demo-sp
+NAME=fidustest
 
 all: build push
 build:
