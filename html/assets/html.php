@@ -48,7 +48,7 @@ function print_footer($extra='') {
         <hr>
 	<p><b>Kontakta oss</b></p>
         <p>Du kan kontakta Skolverket angående Fidus.</p>
-        <p><a href="https://www.skolverket.se/om-oss/kontakta-oss">Kontakta Skolverket</a> 
+        <p><a href="https://www.skolverket.se/om-oss/kontakta-oss">Kontakta Skolverket</a><br>
         <a href="/Behandling_av_personuppgifter.html">Behandling av personuppgifter</a></p>
       </div>
     </div>
