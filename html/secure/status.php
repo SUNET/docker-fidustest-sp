@@ -4,20 +4,18 @@ ini_set('display_startup_errors', 1);
 error_reporting(E_ALL);
 showHeader();
 if (verifyEPPN()) {
-?>
-	<h2>Status</h2>
-	<table cellpadding="0" cellspacing="0">
-	  <tr><th>IdP</th><th>Tidpunkt (UTC)</th><th>Resultat EPPN</td></tr>
-<?php
+	print '        <h2>Status</h2>
+        <table cellpadding="0" cellspacing="0">
+          <tr><th>IdP</th><th>Tidpunkt (UTC)</th><th>Resultat EPPN</td></tr>' . "\n";
+
 	$dbFile = "/var/db/IdPs.db";
 	$db = new SQLite3($dbFile);
 	$IdPs = $db->prepare("SELECT * FROM idpStatus;");
 	$result=$IdPs->execute();
-	while ( $idp = $result->fetchArray()) { ?>
- 	<tr><td class="no-overflow"><?=$idp["Idp"]?></td><td><?=$idp["Time"]?></td><td><?=$idp["TestResult"]?></td></tr>
-<?php	} ?>
-	</table>
-<?php
+	while ( $idp = $result->fetchArray()) {
+		printf('          <tr><td class="no-overflow">%s</td><td>%s</td><td>%s</td></tr>%s', $idp["Idp"], $idp["Time"], $idp["TestResult"], "\n");
+	}
+	print "        </table>\n";
 }
 showFooter();
 
@@ -55,18 +53,19 @@ function showFooter() { ?>
 function verifyEPPN() {
 	if (isset($_SERVER["eppn"]) ) {
 		switch ($_SERVER["eppn"]) {
-		case 'bjorn@sunet.se':	// Bjorn@sunet.se
-		case 'pax@sunet.se':	// pax@sunet.se
-		case 'hilil-podor@eduid.se': // rasmus.larsson@internetstiftelsen.se
-		case 'pogos-nibol@eduid.se': // callisto.utriainen@skolverket.se
-		case 'tabat-vazor@eduid.se': // Mikael.Widen@skolverket.se
-		case 'viluv-jokol@eduid.se': // Aras.Kazemi@skolverket.se
-			return true;
-			break;
-		default:
-			print "Wrong EPPN";
-			return false;
-			break;
+			case 'bjorn@sunet.se':	// Bjorn@sunet.se
+			case 'pax@sunet.se':	// pax@sunet.se
+			case 'jocar@sunet.se':	// jocar@sunet.se
+			case 'hilil-podor@eduid.se': // rasmus.larsson@internetstiftelsen.se
+			case 'rizij-kurod@eduid.se': // Tomas.Ericsson@skolverket.se
+			case 'konoh-mogag@eduid.se': // Mattias.Hyll@skolverket.se
+			case 'fovop-pozad@eduid.se': // Richard är mottagare av verifieringstestet
+				return true;
+				break;
+			default:
+				print "Wrong EPPN";
+				return false;
+				break;
 		}
 	}
 	print "Missing EPPN";
