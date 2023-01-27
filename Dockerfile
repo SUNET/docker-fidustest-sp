@@ -17,6 +17,7 @@ ENV CONTEXT thiss.io
 ADD start.sh /start.sh
 ADD attribute-map.xml /etc/shibboleth/attribute-map.xml
 ADD attribute-policy.xml /etc/shibboleth/attribute-policy.xml
+ADD skolverket.eduid.se_dnp_idp.xml /etc/shibboleth/skolverket.eduid.se_dnp_idp.xml
 ADD html /var/www/html
 RUN chmod a+rx /start.sh /var/www/html/secure/index.php /var/www/html/refeds_mfa/index.php /var/www/html/MS_mfa/index.php /var/www/html/skolfed_mfa/index.php /var/www/html/DNP/index.php /var/www/html/login/index.php 
 COPY /apache2.conf /etc/apache2/
