@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<md:EntityDescriptor xmlns:md="urn:oasis:names:tc:SAML:2.0:metadata" xmlns:ds="http://www.w3.org/2000/09/xmldsig#" xmlns:mdattr="urn:oasis:names:tc:SAML:metadata:attribute" xmlns:samla="urn:oasis:names:tc:SAML:2.0:assertion" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:alg="urn:oasis:names:tc:SAML:metadata:algsupport" xmlns:xs="http://www.w3.org/2001/XMLSchema" entityID="https://skolverket.eduid.se/dnp/idp/">
+  <md:Extensions>
+    <alg:DigestMethod Algorithm="http://www.w3.org/2001/04/xmldsig-more#md5"/>
+    <alg:DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#ripemd160"/>
+    <alg:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1"/>
+    <alg:DigestMethod Algorithm="http://www.w3.org/2001/04/xmldsig-more#sha224"/>
+    <alg:DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha256"/>
+    <alg:DigestMethod Algorithm="http://www.w3.org/2001/04/xmldsig-more#sha384"/>
+    <alg:DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha512"/>
+    <alg:SigningMethod Algorithm="http://www.w3.org/2000/09/xmldsig#dsa-sha1"/>
+    <alg:SigningMethod Algorithm="http://www.w3.org/2009/xmldsig11#dsa-sha256"/>
+    <alg:SigningMethod Algorithm="http://www.w3.org/2001/04/xmldsig-more#ecdsa-sha1"/>
+    <alg:SigningMethod Algorithm="http://www.w3.org/2001/04/xmldsig-more#ecdsa-sha224"/>
+    <alg:SigningMethod Algorithm="http://www.w3.org/2001/04/xmldsig-more#ecdsa-sha256"/>
+    <alg:SigningMethod Algorithm="http://www.w3.org/2001/04/xmldsig-more#ecdsa-sha384"/>
+    <alg:SigningMethod Algorithm="http://www.w3.org/2001/04/xmldsig-more#ecdsa-sha512"/>
+    <alg:SigningMethod Algorithm="http://www.w3.org/2001/04/xmldsig-more#rsa-md5"/>
+    <alg:SigningMethod Algorithm="http://www.w3.org/2001/04/xmldsig-more#rsa-ripemd160"/>
+    <alg:SigningMethod Algorithm="http://www.w3.org/2000/09/xmldsig#rsa-sha1"/>
+    <alg:SigningMethod Algorithm="http://www.w3.org/2001/04/xmldsig-more#rsa-sha224"/>
+    <alg:SigningMethod Algorithm="http://www.w3.org/2001/04/xmldsig-more#rsa-sha256"/>
+    <alg:SigningMethod Algorithm="http://www.w3.org/2001/04/xmldsig-more#rsa-sha384"/>
+    <alg:SigningMethod Algorithm="http://www.w3.org/2001/04/xmldsig-more#rsa-sha512"/>
+  </md:Extensions>
+  <md:IDPSSODescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:2.0:protocol" WantAuthnRequestsSigned="false">
+    <md:KeyDescriptor use="signing">
+      <ds:KeyInfo>
+        <ds:X509Data>
+          <ds:X509Certificate>MIIEsDCCApgCCQDgywsBkbeCBDANBgkqhkiG9w0BAQsFADAaMRgwFgYDVQQDDA9z
+YXRvc2FfbWV0YWRhdGEwHhcNMjMwMTE5MTUxNjUzWhcNMzMwMTE2MTUxNjUzWjAa
+MRgwFgYDVQQDDA9zYXRvc2FfbWV0YWRhdGEwggIiMA0GCSqGSIb3DQEBAQUAA4IC
+DwAwggIKAoICAQC2hBBYAD2Leo12za0yhXJzf4HfWSO4iK9tssOhezeyBKteAsy2
+3elDqfJeI+v1ApBwTKf9qqHpAUmgRUGznqXRqehRQbHkdZS9NAQ/aPT+8Qws/gw9
+P601k8IcYW4OOMRinJO+zbKHqss9qDn+Eu1XF1Yb9yzMW8S1LYiHJyC3kZwGi4aQ
+dBHiUHqh1idQWdWSTMJ/NqP0qL8/nlGnHJLVVYBaQ+PA2ggOJ9FARDEVszjxSyTR
+V/7VX6YKogIg55rcpgChmjVtyRFcLPbHG2QLfsXGs8sl5weS5OFn4ujrVHSeDP/E
+xRqMjWY9VRr7n+VBvfItykDC6WS4cjrm19IsGJEWmsUsKbZPrXLb+XdUApYyftc3
+LQibXwjD3WPd+5YN9f9jNe/LCRoQGiXS4JPvFn0I2fsLxa7h6U31yAADvu+7oU4q
+flYpHD61hcDBZtYJ9xfJGAsSvAS1Fxv2Fi7UI/gjTC1zkrtSDxMp4j2CbyAHYDTR
+0CK40V5EOLbAXM80TYdlacBX/4Miq/FS8tk5stN9Dtke0xAVVC2siZVlYgj8IXPI
+Qc9degXgBVNq6+TgSkCaHm9iqH13zb6FUoCAL5Lwhlaes0zoA5Xswdxo6Zx8qaSB
+06h7mNXBVUnMua085iSiLZONkoANcxDUmQJaLopQiEGNUuc+oTPlKVKX0wIDAQAB
+MA0GCSqGSIb3DQEBCwUAA4ICAQBB3HhFj6oO4BFb0pyCv2duzGl0dCXteMd+qZeJ
+PnnyMo5IQK1rB7G0OTo+zMTV/VH8CLeb9V2aPZmT8JNtfcWOR0Iux/cwqM9AyYdO
+GaW308oiMzfP5jAVEv/kBe8sjOcmF7us82Th+uGlVI9ZpyuSJIVBER9Tr9dSjaZo
+9MogwTFYtDU2ZC/6M3Cft2N31gt+n9vmTwh183WIu9z2fGjzlRZQ/hs3tV+KVAT2
+gUgHY15TNhZHfdFk22U6+tDbocc3AZ+meGfV/DspOSsEU72p7qhGA91MRzYRq5ak
+yk8n74z8T2tW1IDWGFO6CJ8ioI3ja8wJelUHaGXWfgJGDsWsoSLV446TBCTDYlFY
+3fueQVk3gcPCPqHu1R7lXjqCVhYkbXtev6VT/zSq+ahIdKW0BB/MCAEpravt6GVe
+rLGY3BfD6TT/3DnDvCco7sAmRAJpbQ04whrw47yiXOq4nI627r57oYYZQVhHCaXj
+VWBqmLFA7y2U0DueXEM9i2u0h2EmJOROs9EGsNC4CJRgJQYEau9LmrsGjW3cB/B4
+/MeJci24odOf3SrzUjurzfrSTNjH2gEeFCs7DNecdVvF6bRdKRZM/MdgmXv/RVKh
+ygSB+2wiBmMik4oUKr3EC8DWg5NGxZ3NYjsA5rhyEc77WUfkax6xJ9BOS6Izp35i
+zj5Fgw==</ds:X509Certificate>
+        </ds:X509Data>
+      </ds:KeyInfo>
+    </md:KeyDescriptor>
+    <md:NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:transient</md:NameIDFormat>
+    <md:SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://skolverket.eduid.se/Saml2SP/Saml2IDP/sso/post"/>
+    <md:SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://skolverket.eduid.se/Saml2SP/Saml2IDP/sso/redirect"/>
+  </md:IDPSSODescriptor>
+  <md:Organization>
+    <md:OrganizationName xml:lang="sv">Skolverket</md:OrganizationName>
+    <md:OrganizationDisplayName xml:lang="sv">Skolverket</md:OrganizationDisplayName>
+    <md:OrganizationURL xml:lang="sv">https://www.skolverket.se/</md:OrganizationURL>
+  </md:Organization>
+</md:EntityDescriptor>
