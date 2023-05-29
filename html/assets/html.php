@@ -43,13 +43,15 @@ function print_header($title,$prefix='') {
       <div class="popup">';
 }
 
-function print_footer($extra='') {
+function print_footer($extra='', $extraRelated='') {
 	print '
+        <hr>
+	<p><b>Relaterad information</b></p>' . $extraRelated .'
+	<p><a href="/Behandling_av_personuppgifter.html">Behandling av personuppgifter</a></p>
         <hr>
 	<p><b>Kontakta oss</b></p>
         <p>Du kan kontakta Skolverket angående Fidus.</p>
-        <p><a href="https://www.skolverket.se/om-oss/kontakta-oss">Kontakta Skolverket</a><br>
-        <a href="/Behandling_av_personuppgifter.html">Behandling av personuppgifter</a></p>
+        <p><a href="https://www.skolverket.se/om-oss/kontakta-oss">Kontakta Skolverket</a><p>
       </div>
     </div>
   </div>
