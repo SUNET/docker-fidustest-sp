@@ -101,7 +101,7 @@ cat>/etc/shibboleth/shibboleth2.xml<<EOF
         <Errors supportContact="${SP_CONTACT}" redirectErrors="/error.php"/>
 
         <MetadataProvider type="XML" uri="${MD_URL}"
-           backingFilePath="swamid-1.0.xml" reloadInterval="300">
+           backingFilePath="swamid-1.0.xml" reloadInterval="7200">
            <SignatureMetadataFilter certificate="${MD_CERT}"/>
         </MetadataProvider>
 
