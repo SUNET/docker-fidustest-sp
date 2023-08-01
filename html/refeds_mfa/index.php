@@ -3,7 +3,8 @@ ini_set('display_errors', 1);
 ini_set('display_startup_errors', 1);
 error_reporting(E_ALL);
 
-showHeader();
+include '../assets/html.php';
+print_header('Skolverkets testsida för inloggning','../');
 
 $idp = $_SERVER["Shib-Identity-Provider"];
 #if (isset($_SERVER["eppn"]) ) {
@@ -42,39 +43,7 @@ foreach ( array('Identity-Provider','Authentication-Instant','Authentication-Met
 	<h3>V&auml;rt att veta:</h3>
 	<p>Skolverket hanterar inte dina inloggningsuppgifter. Du n&aring;r v&aring;r testsida via en inloggning p&aring; din skola, &auml;ven kallad federerad inloggning. Om du vill l&auml;ra mer om hur federerad inloggning fungerar, bes&ouml;k Internetstiftelsens webbplats om <a href="https://www.skolfederation.se/" target="_blank">Skolfederation</a>.</p>
 <?php
-showFooter();
-
-function showHeader() { ?>
-<!DOCTYPE html
-    PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
-    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" lang="en-US" xml:lang="en-US">
-<head>
-<title>Skolverkets testsida för inloggning till digitala nationella prov</title>
-<meta apple-mobile-web-app-capable="yes" apple-mobile-web-app-status-bar-style="black-translucent" charset="utf-8" content="text/html; charset=utf-8" format-detection="telephone=no" http-equiv="Content-Type" robots="noindex" viewport="width=device-width, initial-scale=0.86, maximum-scale=3.0, minimum-scale=0.86" />
-<link href="/assets/style.css" rel="stylesheet" />
-<link href="/assets/android-chrome-192x192.png" rel="icon" />
-<link href="/assets/manifest.json" rel="manifest" />
-<link href="/assets/favicon.ico" rel="shortcut icon" />
-<link href="/assets/android-chrome-192x192.png" rel="apple-touch-icon" />
-</head>
-<body>
-
-  <div class="header">
-    <div class="topnav"><img src="/assets/skolverket-logotype.svg" class="logotype" /></div>
-  </div><!-- End header -->
-  <div class="container">
-    <div class="widecontent">
-      <div class="page">
-<?php }
-
-function showFooter() { ?>
-      </div><!-- End page -->
-    </div><!-- End widecontent -->
-  </div><!-- End container -->
-</body>
-</html>
-<?php }
+print_footer();
 
 ###
 # Sparar ner i SQL
