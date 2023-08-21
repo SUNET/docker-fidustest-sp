@@ -15,7 +15,7 @@ if ($_SERVER["Shib-Authentication-Method"] == 'http://schemas.microsoft.com/clai
 	print '	<h2>Grattis!</h2>' . "\n";
 	print '	<p class="largetext">Du har nu lyckats logga in till Skolverkets testsida.</p>' . "\n";
 } else {
-	print '	<h2>Tyvär lyckades inte inloggningen till 100%</h2>' . "\n";
+	print '	<h2>Tyvärr lyckades inte inloggningen till 100%</h2>' . "\n";
 	print '	<p class="largetext">Förväntade oss att <b>Authentication-Method</b> skulle vara <b>http://schemas.microsoft.com/claims/multipleauthn</b></p>' . "\n";
 }
 ?>

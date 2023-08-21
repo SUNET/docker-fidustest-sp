@@ -13,10 +13,10 @@ if ($_SERVER["Shib-Authentication-Method"] == 'https://refeds.org/profile/mfa') 
 		printf('	<h2>Grattis!</h2>%s	<p class="largetext">Du har nu lyckats logga in till testsidan.</p>%s',"\n", "\n");
 	} else {
 		saveToSQL($idp,"EPPN","Saknas");
-		printf('	<h2>Tyvär lyckades inte inloggningen till 100%</h2>%s	<p class="largetext">Du saknar eppn/eduPersonPrincipalName.</p>%s',"\n", "\n");
+		printf('	<h2>Tyvärr lyckades inte inloggningen till 100%</h2>%s	<p class="largetext">Du saknar eppn/eduPersonPrincipalName.</p>%s',"\n", "\n");
 	}
 } else {
-	print '	<h2>Tyvär lyckades inte inloggningen till 100%</h2>' . "\n";
+	print '	<h2>Tyvärr lyckades inte inloggningen till 100%</h2>' . "\n";
 	print '	<p class="largetext">Authentication-Method var inte LOA2 eller högre</p>' . "\n";
 	if (! isset($_SERVER["eppn"]) ) {
 		printf('	<p class="largetext">Du saknar eppn/eduPersonPrincipalName.</p>%s',"\n");
