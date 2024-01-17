@@ -1,6 +1,6 @@
 <?php
 function print_header($title,$prefix='') {
-	print '<!DOCTYPE html>
+  print '<!DOCTYPE html>
 <html lang="en-US">
 <head>
   <meta charset="utf-8"> 
@@ -44,12 +44,12 @@ function print_header($title,$prefix='') {
 }
 
 function print_footer($extra='', $extraRelated='') {
-	print '
+  print '
         <hr>
-	<p><b>Relaterad information</b></p>' . $extraRelated .'
-	<p><a href="/Behandling_av_personuppgifter.html">Behandling av personuppgifter</a></p>
+        <p><b>Relaterad information</b></p>' . $extraRelated .'
+        <p><a href="/Behandling_av_personuppgifter.html">Behandling av personuppgifter</a></p>
         <hr>
-	<p><b>Kontakta oss</b></p>
+        <p><b>Kontakta oss</b></p>
         <p>Du kan kontakta Skolverket angående Fidus.</p>
         <p><a href="https://www.skolverket.se/om-oss/kontakta-oss">Kontakta Skolverket</a><p>
       </div>
@@ -58,4 +58,3 @@ function print_footer($extra='', $extraRelated='') {
 '.$extra.'</body>
 </html>';
 }
-
