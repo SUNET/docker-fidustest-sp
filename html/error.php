@@ -23,7 +23,7 @@
 switch($_GET['RelayState']) {
 	case 'https://fidustest.skolverket.se/secure':
 		$error = 'SFA';
-		$retry = 'index.html';
+		$retry = 'index.php';
 		break;
 	case 'https://fidustest.skolverket.se/refeds_mfa':
 	case 'https://fidustest.skolverket.se/refeds_mfa/':
@@ -39,7 +39,7 @@ switch($_GET['RelayState']) {
 		break;
 	default:
 		$error = '?';
-		$retry = 'index.html';
+		$retry = 'index.php';
 }
 ?>
     <p class="largetext">Vi kunde inte ge dig åtkomst till Skolverkets testsida.</p>
