@@ -2,8 +2,10 @@
 
 printenv
 
+HOSTNAME=$(hostname -f)
+
 if [ "x${SP_HOSTNAME}" = "x" ]; then
-   SP_HOSTNAME="`hostname`"
+   SP_HOSTNAME="${HOSTNAME}"
 fi
 
 if [ "x${SP_CONTACT}" = "x" ]; then
@@ -25,26 +27,6 @@ if [ ! -f "$KEYDIR/private/shibsp-${SP_HOSTNAME}.key" -o ! -f "$KEYDIR/certs/shi
    shib-keygen -o /tmp -h $SP_HOSTNAME 2>/dev/null
    mv /tmp/sp-key.pem "$KEYDIR/private/shibsp-${SP_HOSTNAME}.key"
    mv /tmp/sp-cert.pem "$KEYDIR/certs/shibsp-${SP_HOSTNAME}.crt"
-fi
-
-if [ ! -f "$KEYDIR/private/${SP_HOSTNAME}.key" -o ! -f "$KEYDIR/certs/${SP_HOSTNAME}.crt" ]; then
-   make-ssl-cert generate-default-snakeoil --force-overwrite
-   cp /etc/ssl/private/ssl-cert-snakeoil.key "$KEYDIR/private/${SP_HOSTNAME}.key"
-   cp /etc/ssl/certs/ssl-cert-snakeoil.pem "$KEYDIR/certs/${SP_HOSTNAME}.crt"
-fi
-
-CHAINSPEC=""
-export CHAINSPEC
-if [ -f "$KEYDIR/certs/${SP_HOSTNAME}.chain" ]; then
-   CHAINSPEC="SSLCertificateChainFile $KEYDIR/certs/${SP_HOSTNAME}.chain"
-elif [ -f "$KEYDIR/certs/${SP_HOSTNAME}-chain.crt" ]; then
-   CHAINSPEC="SSLCertificateChainFile $KEYDIR/certs/${SP_HOSTNAME}-chain.crt"
-elif [ -f "$KEYDIR/certs/${SP_HOSTNAME}.chain.crt" ]; then
-   CHAINSPEC="SSLCertificateChainFile $KEYDIR/certs/${SP_HOSTNAME}.chain.crt"
-elif [ -f "$KEYDIR/certs/chain.crt" ]; then
-   CHAINSPEC="SSLCertificateChainFile $KEYDIR/certs/chain.crt"
-elif [ -f "$KEYDIR/certs/chain.pem" ]; then
-   CHAINSPEC="SSLCertificateChainFile $KEYDIR/certs/chain.pem"
 fi
 
 cat>/etc/shibboleth/shibboleth2.xml<<EOF
@@ -145,9 +127,9 @@ ServerName ${SP_HOSTNAME}
         SSLCompression Off
         SSLCipherSuite "EECDH+ECDSA+AESGCM EECDH+aRSA+AESGCM EECDH+ECDSA+SHA384 EECDH+ECDSA+SHA256 EECDH+aRSA+SHA384 EECDH+aRSA+SHA256 EECDH+AESGCM EECDH EDH+AESGCM EDH+aRSA HIGH !MEDIUM !LOW !aNULL !eNULL !LOW !RC4 !MD5 !EXP !PSK !SRP !DSS"
         SSLEngine On
-        SSLCertificateFile $KEYDIR/certs/${SP_HOSTNAME}.crt
-        ${CHAINSPEC}
-        SSLCertificateKeyFile $KEYDIR/private/${SP_HOSTNAME}.key
+        SSLCertificateFile $KEYDIR/certs/${HOSTNAME}_infra.crt
+        SSLCertificateChainFile $KEYDIR/certs/infra.crt
+        SSLCertificateKeyFile $KEYDIR/private/${HOSTNAME}_infra.key
         DocumentRoot /var/www/html
         
         Alias /shibboleth-sp/ /usr/share/shibboleth/
