@@ -2,10 +2,8 @@
 
 printenv
 
-HOSTNAME=$(hostname -f)
-
 if [ "x${SP_HOSTNAME}" = "x" ]; then
-   SP_HOSTNAME="${HOSTNAME}"
+   SP_HOSTNAME="${SERVER_FQDN}"
 fi
 
 if [ "x${SP_CONTACT}" = "x" ]; then
@@ -127,9 +125,9 @@ ServerName ${SP_HOSTNAME}
         SSLCompression Off
         SSLCipherSuite "EECDH+ECDSA+AESGCM EECDH+aRSA+AESGCM EECDH+ECDSA+SHA384 EECDH+ECDSA+SHA256 EECDH+aRSA+SHA384 EECDH+aRSA+SHA256 EECDH+AESGCM EECDH EDH+AESGCM EDH+aRSA HIGH !MEDIUM !LOW !aNULL !eNULL !LOW !RC4 !MD5 !EXP !PSK !SRP !DSS"
         SSLEngine On
-        SSLCertificateFile $KEYDIR/certs/${HOSTNAME}_infra.crt
+        SSLCertificateFile $KEYDIR/certs/${SERVER_FQDN}_infra.crt
         SSLCertificateChainFile $KEYDIR/certs/infra.crt
-        SSLCertificateKeyFile $KEYDIR/private/${HOSTNAME}_infra.key
+        SSLCertificateKeyFile $KEYDIR/private/${SERVER_FQDN}_infra.key
         DocumentRoot /var/www/html
         
         Alias /shibboleth-sp/ /usr/share/shibboleth/
