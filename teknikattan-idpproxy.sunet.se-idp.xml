@@ -1,0 +1,38 @@
+<?xml version="1.0"?>
+<ns0:EntityDescriptor xmlns:ns0="urn:oasis:names:tc:SAML:2.0:metadata" xmlns:ns1="http://www.w3.org/2000/09/xmldsig#" xmlns:ns2="urn:oasis:names:tc:SAML:metadata:algsupport" entityID="https://teknikattan-idpproxy.sunet.se/idp" ID="id-VBnhzHCkLeHkdejHN">
+  <ns0:Extensions>
+    <ns2:DigestMethod Algorithm="http://www.w3.org/2001/04/xmldsig-more#md5"/>
+    <ns2:DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#ripemd160"/>
+    <ns2:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1"/>
+    <ns2:DigestMethod Algorithm="http://www.w3.org/2001/04/xmldsig-more#sha224"/>
+    <ns2:DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha256"/>
+    <ns2:DigestMethod Algorithm="http://www.w3.org/2001/04/xmldsig-more#sha384"/>
+    <ns2:DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha512"/>
+    <ns2:SigningMethod Algorithm="http://www.w3.org/2000/09/xmldsig#dsa-sha1"/>
+    <ns2:SigningMethod Algorithm="http://www.w3.org/2009/xmldsig11#dsa-sha256"/>
+    <ns2:SigningMethod Algorithm="http://www.w3.org/2001/04/xmldsig-more#ecdsa-sha1"/>
+    <ns2:SigningMethod Algorithm="http://www.w3.org/2001/04/xmldsig-more#ecdsa-sha224"/>
+    <ns2:SigningMethod Algorithm="http://www.w3.org/2001/04/xmldsig-more#ecdsa-sha256"/>
+    <ns2:SigningMethod Algorithm="http://www.w3.org/2001/04/xmldsig-more#ecdsa-sha384"/>
+    <ns2:SigningMethod Algorithm="http://www.w3.org/2001/04/xmldsig-more#ecdsa-sha512"/>
+    <ns2:SigningMethod Algorithm="http://www.w3.org/2001/04/xmldsig-more#rsa-md5"/>
+    <ns2:SigningMethod Algorithm="http://www.w3.org/2001/04/xmldsig-more#rsa-ripemd160"/>
+    <ns2:SigningMethod Algorithm="http://www.w3.org/2000/09/xmldsig#rsa-sha1"/>
+    <ns2:SigningMethod Algorithm="http://www.w3.org/2001/04/xmldsig-more#rsa-sha224"/>
+    <ns2:SigningMethod Algorithm="http://www.w3.org/2001/04/xmldsig-more#rsa-sha256"/>
+    <ns2:SigningMethod Algorithm="http://www.w3.org/2001/04/xmldsig-more#rsa-sha384"/>
+    <ns2:SigningMethod Algorithm="http://www.w3.org/2001/04/xmldsig-more#rsa-sha512"/>
+  </ns0:Extensions>
+  <ns0:IDPSSODescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:2.0:protocol" WantAuthnRequestsSigned="false">
+    <ns0:KeyDescriptor use="signing">
+      <ns1:KeyInfo>
+        <ns1:X509Data>
+          <ns1:X509Certificate>MIIFFTCCAv2gAwIBAgIULIPu9jJfpaPEFjC8IjergTClyl4wDQYJKoZIhvcNAQELBQAwGjEYMBYGA1UEAwwPc2F0b3NhX2Zyb250ZW5kMB4XDTI0MTAyMTA4MjgyM1oXDTM0MTAxOTA4MjgyM1owGjEYMBYGA1UEAwwPc2F0b3NhX2Zyb250ZW5kMIICIjANBgkqhkiG9w0BAQEFAAOCAg8AMIICCgKCAgEAzYKETkARLDfoVI31rznwWPqwTAUhpVFlRM4KdxLjOLacUn0vvMsWSidAYCbfL/EXuK1rGRWwvzz9dTm+mUj0fQHUIl4SnAjOkwzQ7HG+Gu9Guu3CqRHTFHSc7ZUoTlrxIP3APYhvuoArjjMxYM7k83Q1y4HPH4NKckswsw8iSUcsk9u6Cly+VK11eraT9NLyrtw67LdcqTQLAr8VJEk8bdEaa6KDJ3aybG/ZrkshS3Qyd/Gmw446ieJJemQYcoaKmXFdhwIdgE2TQcxyIiLy+5zMtzWdS0CKGv4AXgiTxeDA0tELbjy1DtH9RTJmCN7FFn4CrBn9jf9YXgHl61GvImwI1ZP0sPGX7W1xzQr/rABH86C3i6wihqVMIbOgR2uUpQzqjxhF/XLjxw2ewT2uAALN4Ly94duYh9WsMGKh/8RoFP+PwIcfp5fVyiaLkd7yIzwYP3Y9oogIxeIr/Bbm3di0OJUEm7IjLQ8d7ngDaUAOI9UtPn7tNVYlnp/fqAqjOYdmJF9VzsvuSac3iznksg0sMn91kzhT4cOaZaDwxlbme/gMJMKCCQt1XspFOlWXETwI22cQQWRTB+btXZppjZOFRfaMxdLi1uOJD9h/G1PuzJpD4vzLR1bcxkI/XZpX27B4D4Ehztd+hqlDP63t21z1RMKJdyF6sTTjrqKVf00CAwEAAaNTMFEwHQYDVR0OBBYEFP3i2QSz3JutCBKTL6n6VnRkORY4MB8GA1UdIwQYMBaAFP3i2QSz3JutCBKTL6n6VnRkORY4MA8GA1UdEwEB/wQFMAMBAf8wDQYJKoZIhvcNAQELBQADggIBACUY16BrGvyJY0NtYAPSZOGBC+NYbwLw6gUU9e9hX6PEMrtW7txphWVHTPEv+Vhuf8i9yDbX0h9fDmSu6eMe3X6hXmNp0U3q7KUxp6+45T31ILkMmQbx1kwprRupui/PS98K341Vl/edQN2NXOaCtG/A6RIo/93WxikHhF+HMGvcp2GworpnvlDFJSN5p23Ih7WyUvz5QqXHtnMh4n7eUlcMRZ6cAZvLJ4Xbr/pNk7yXS4whs6E11cPqDCi+ZfXkvHRsCwkzrVrql8q1y8e71CKOfm3XNfaQicWFmllZ6JSc7PiObmwqXm2a0AdpN0oGjC/Boby4+mijhOhApqElEjNqkeNUrO705+Io6Qe9u3fG82mnXP15Q+SSy0AH6r/pHQDo2Mhj9ZYUgjsmcC4mV2jLA22U+vnhjKYoOWtMnyeuP9U+2358GWFzwdKTEVolF10tH4ZPJa1s7by9Ag/+xT1zzqE5vtaNA7XHyWUK4wPnXNzuTk5xGToaRzwPQx26TJzwEFJIpZ1AnE7a0NyrXA+34dGZLE5t5ZWe7rcuNcq+0qBBvU4Ow+znDziuomHLyycpeKA2gQtW2RxUPhLx0IuawgwUl2NHdFQUsoZNmLYd4nFB+gO2flNkifrbRJ2ivtGi7s+qmM3SPkn5S/Ei2akMxgrl196G8LQ/R4rxoPC7</ns1:X509Certificate>
+        </ns1:X509Data>
+      </ns1:KeyInfo>
+    </ns0:KeyDescriptor>
+    <ns0:NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:transient</ns0:NameIDFormat>
+    <ns0:SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://teknikattan-idpproxy.sunet.se/Saml2SP/Saml2IDP/sso/post"/>
+    <ns0:SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://teknikattan-idpproxy.sunet.se/Saml2SP/Saml2IDP/sso/redirect"/>
+  </ns0:IDPSSODescriptor>
+</ns0:EntityDescriptor>
