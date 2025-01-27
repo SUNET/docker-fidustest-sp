@@ -16,7 +16,7 @@ function print_header($title,$prefix='') {
     <link rel="manifest" href="'.$prefix.'assets/manifest.json">
     <link rel="shortcut icon" href="'.$prefix.'assets/favicon.ico"/> 
   <link rel="stylesheet" type="text/css" href="'.$prefix.'assets/style.css"> 
-  <script src="https://ds.fidus.skolverket.se/thiss.js"></script>
+  <script src="https://ds.fidus.skolverket.se/test/thiss.js"></script>
   <style>
     .button {
       border: none;
