@@ -55,25 +55,25 @@ cat>/etc/shibboleth/shibboleth2.xml<<EOF
             <SessionInitiator type="Chaining" Location="/Login" id="ds" relayState="cookie">
                 <SessionInitiator type="SAML2" defaultACSIndex="1" acsByIndex="false" template="bindingTemplate.html"/>
                 <SessionInitiator type="Shib1" defaultACSIndex="5"/>
-                <SessionInitiator type="SAMLDS" URL="https://${THISS_DOMAIN}/ds"/>
+                <SessionInitiator type="SAMLDS" URL="https://${THISS_DOMAIN}/ds/"/>
             </SessionInitiator>
 
             <SessionInitiator type="Chaining" Location="/REFEDS" id="ds-refeds" relayState="cookie" authnContextClassRef="https://refeds.org/profile/mfa" forceAuthn="true">
                 <SessionInitiator type="SAML2" defaultACSIndex="1" acsByIndex="false" template="bindingTemplate.html"/>
                 <SessionInitiator type="Shib1" defaultACSIndex="5"/>
-                <SessionInitiator type="SAMLDS" URL="https://${THISS_DOMAIN}/ds"/>
+                <SessionInitiator type="SAMLDS" URL="https://${THISS_DOMAIN}/ds/"/>
             </SessionInitiator>
 
             <SessionInitiator type="Chaining" Location="/MS" id="ds-ms" relayState="cookie" authnContextClassRef="http://schemas.microsoft.com/claims/multipleauthn" forceAuthn="true">
                 <SessionInitiator type="SAML2" defaultACSIndex="1" acsByIndex="false" template="bindingTemplate.html"/>
                 <SessionInitiator type="Shib1" defaultACSIndex="5"/>
-                <SessionInitiator type="SAMLDS" URL="https://${THISS_DOMAIN}/ds"/>
+                <SessionInitiator type="SAMLDS" URL="https://${THISS_DOMAIN}/ds/"/>
             </SessionInitiator>
 
             <SessionInitiator type="Chaining" Location="/skolfed" id="ds-skolfed" relayState="cookie" authnContextClassRef="http://id.skolfederation.se/loa/2fa" forceAuthn="true">
                 <SessionInitiator type="SAML2" defaultACSIndex="1" acsByIndex="false" template="bindingTemplate.html"/>
                 <SessionInitiator type="Shib1" defaultACSIndex="5"/>
-                <SessionInitiator type="SAMLDS" URL="https://${THISS_DOMAIN}/ds"/>
+                <SessionInitiator type="SAMLDS" URL="https://${THISS_DOMAIN}/ds/"/>
             </SessionInitiator>
 
         </Sessions>
