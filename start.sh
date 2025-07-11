@@ -80,16 +80,20 @@ cat>/etc/shibboleth/shibboleth2.xml<<EOF
 
         <Errors supportContact="${SP_CONTACT}" redirectErrors="/error.php"/>
 
-        <MetadataProvider type="XML" uri="${MD_URL}"
-           backingFilePath="swamid-1.0.xml" reloadInterval="7200">
-           <SignatureMetadataFilter certificate="${MD_CERT}"/>
+        <MetadataProvider type="MDQ" id="MDQ" ignoreTransport="true" cacheDirectory="mdq"
+                   baseUrl="${MD_URL}">
+            <MetadataFilter type="Signature" certificate="${MD_CERT}"/>
+            <MetadataFilter type="RequireValidUntil" maxValidityInterval="2419200"/>
         </MetadataProvider>
 
         <MetadataProvider type="XML" uri="https://idpproxy.dev.eduid.se/idp"
-           backingFilePath="idpproxy.dev.xml" reloadInterval="300">
-        </MetadataProvider>
-        <MetadataProvider type="XML" path="skolverket.eduid.se_dnp_idp.xml"/>
-	<MetadataProvider type="XML" path="teknikattan-idpproxy.sunet.se-idp.xml"/>
+           backingFilePath="idpproxy.dev.xml" reloadInterval="7200"/>
+
+        <MetadataProvider type="XML" path="skolverket.eduid.se_dnp_idp.xml"
+           backingFilePath="skolverket.eduid.se_dnp_idp.xml" reloadInterval="7200"/>
+
+        <MetadataProvider type="XML" path="teknikattan-idpproxy.sunet.se-idp.xml"
+           backingFilePath="teknikattan-idpproxy.sunet.se-idp.xml" reloadInterval="7200"/>
 
         <AttributeExtractor type="XML" validate="true" reloadChanges="false" path="attribute-map.xml"/>
         <AttributeResolver type="Query" subjectMatch="true"/>
