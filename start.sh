@@ -92,9 +92,6 @@ cat>/etc/shibboleth/shibboleth2.xml<<EOF
         <MetadataProvider type="XML" path="skolverket.eduid.se_dnp_idp.xml"
            backingFilePath="skolverket.eduid.se_dnp_idp.xml" reloadInterval="7200"/>
 
-        <MetadataProvider type="XML" path="teknikattan-idpproxy.sunet.se-idp.xml"
-           backingFilePath="teknikattan-idpproxy.sunet.se-idp.xml" reloadInterval="7200"/>
-
         <AttributeExtractor type="XML" validate="true" reloadChanges="false" path="attribute-map.xml"/>
         <AttributeResolver type="Query" subjectMatch="true"/>
         <AttributeFilter type="XML" validate="true" path="attribute-policy.xml"/>
