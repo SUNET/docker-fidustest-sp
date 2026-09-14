@@ -1,9 +1,9 @@
-FROM debian:bullseye
+FROM debian:trixie
 MAINTAINER bjorn@sunet.se
 RUN echo 'debconf debconf/frontend select Noninteractive' | debconf-set-selections
 RUN apt-get -q update  && \
 	apt-get -y upgrade  && \
-	apt-get -y install apache2 libapache2-mod-shib ssl-cert augeas-tools libapache2-mod-php libcgi-pm-perl libemail-mime-encodings-perl php-htmlpurifier gettext-base libutf8-all-perl php-sqlite3  && \
+	apt-get -y install apache2 libapache2-mod-shib ssl-cert augeas-tools libapache2-mod-php gettext-base libutf8-all-perl php-sqlite3  && \
 	a2enmod rewrite ssl shib headers cgi proxy proxy_http  && \
 	rm -f /etc/apache2/sites-available/*  && \
 	rm -f /etc/apache2/sites-enabled/*
