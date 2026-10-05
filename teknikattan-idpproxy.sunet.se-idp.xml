@@ -1,0 +1,15 @@
+<?xml version="1.0"?>
+<md:EntityDescriptor xmlns:md="urn:oasis:names:tc:SAML:2.0:metadata" xmlns:saml="urn:oasis:names:tc:SAML:2.0:assertion" xmlns:ds="http://www.w3.org/2000/09/xmldsig#" xmlns:xenc="http://www.w3.org/2001/04/xmlenc#" entityID="https://teknikattan-idpproxy.sunet.se/idp">
+  <md:IDPSSODescriptor xmlns:md="urn:oasis:names:tc:SAML:2.0:metadata" xmlns:saml="urn:oasis:names:tc:SAML:2.0:assertion" xmlns:ds="http://www.w3.org/2000/09/xmldsig#" xmlns:xenc="http://www.w3.org/2001/04/xmlenc#" protocolSupportEnumeration="urn:oasis:names:tc:SAML:2.0:protocol" WantAuthnRequestsSigned="true">
+    <md:KeyDescriptor use="signing">
+      <ds:KeyInfo xmlns:ds="http://www.w3.org/2000/09/xmldsig#">
+        <ds:X509Data>
+          <ds:X509Certificate>MIIFLzCCAxegAwIBAgIUeXzQt4TKuKNWkL/7lb6SXSL73QswDQYJKoZIhvcNAQELBQAwJzElMCMGA1UEAwwcdHVubmVsYmFuYV9mcm9udGVuZF9zYW1sMmlkcDAeFw0yNjEwMDIxMDUxNThaFw0zNjA5MjkxMDUxNThaMCcxJTAjBgNVBAMMHHR1bm5lbGJhbmFfZnJvbnRlbmRfc2FtbDJpZHAwggIiMA0GCSqGSIb3DQEBAQUAA4ICDwAwggIKAoICAQCYbn+zwD7/IXUs8r44fgIP6TFn6xRpKdqAgi0UtPZz1r46nNRbjhc5vUUgRI9ZKVEUphedgffw3YItNzUTC/ADZOuw4WTXbbrJSiNcIJNGfinDoH0K620HuuXk1YMG9a0yMbQIOMNOo4jx7Ih3QrIVWrOW1ADgNwY3dyPWgnnIpyqxfgq6bOrcoqpZ00PhQmmS4m+EzMQBOcHFp4dftNEM85rntyCDhbN3lfsv6D1yg2ySkvpl9R8zsri6gYTMSfx+/Tzd/F0anArPdsfuwBXSmH7EOtfRPcRpugvYmaVDgu+PyM/BY3rqmk9E4uqB7a7UYDKjg7OOyrq53XIybzeumTN8ke2GfzERzao2y1H5s8tNT6PSlYSW5FDIxkyob9pABL8/XmpKkR2w/PuSlcKbVFkYS97Np1A8cYNW4+cZ/zpIdNHQEC7qs9YbhMLrC9o1VIY6ewB6STbD+o2+dqCDAPg2OIVWLeo2VQiYVQciY6O6MnpL1bmRZDlwL7YP2cko+9hHF1ZNJ5dWSsgHqjIh5icE2OfntucdtjWB+vCPGc5feH380/1cT6hkwXTXB50DrctrdVqbdaXc5i2ckkqIK4xXx/LSAoBhlGd5ZvGfZNBE5wuHrwk+LGP+9gcT4uSKdzA1p8MmInuyzicOU/c6i0wvKpJKFPr1/Tqh56A15wIDAQABo1MwUTAdBgNVHQ4EFgQULO9TFQPBE4Du89t/Q9Q/OuO9dKYwHwYDVR0jBBgwFoAULO9TFQPBE4Du89t/Q9Q/OuO9dKYwDwYDVR0TAQH/BAUwAwEB/zANBgkqhkiG9w0BAQsFAAOCAgEAa/cUTUMqnt7q1saHH5MMX+0Oszdo/ndXbtpcUckChRJaoBzVPZENw4g6ZjWTTdyFWwhZC4ywr+JXDj7OhCtuPbDYhze9MMRqpfX6AdgLl5C9OlN+eI//EPJcSMWg4Qp13MT7/vhkBiLOUyOd2wcrG0zxReFeQrSfqyhJ6UZKaNEnbJdRHRcVwJ+ZAnZj6AwrYxNlcflssA4GKAPgVLuOCsny+BZ4NWN2pBc5YU/7kQbugg7gcCnWwBPLxhMrZ3lVq1s21/wWIQQbnqyXL13Z6qUed0GLewact7F8J86J4I3OWd9EW6fG+6D5XnFcwlV8nTTloCRS3J3av6dJ1f3cQrdYYC8xpPou9dMieWT0h9NZxydVp8GTJSx9YS+8LB1ZlFZt8VFRerVxatqE5HG5cNXtJ75ztePfw6Xiz+gXRMLSjzCY2WCVPIY68vRGy0JQ6aIP0Pibuw06rvkuYjmEY02M4hk1qyFV5dPZZeJGu0FpArKofEP7UeESEHTNqyZQYzpqfStlP7hj7RBtobBg0w+LJOXFNSW4DzjiOx5/sClrh8Q9OwMd9nI0EVKA+xWpSvyX6zu0/RBGEnILNA5CbM92UXEPQ+/WiS6jkUeqBDI7zf89aT349cZZVGcllZx9As4KRg7JKFgxBxlTklVRy8Ii1y5Aw3K8OszwgN1v3Uw=</ds:X509Certificate>
+        </ds:X509Data>
+      </ds:KeyInfo>
+    </md:KeyDescriptor>
+    <md:NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:transient</md:NameIDFormat>
+    <md:SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://teknikattan-sso-proxy.fidus.sunet.se/Saml2IDP/sso"/>
+    <md:SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://teknikattan-sso-proxy.fidus.sunet.se/Saml2IDP/sso"/>
+  </md:IDPSSODescriptor>
+</md:EntityDescriptor>
